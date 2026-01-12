@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+
+}
+header{
+    background-color:black;
+    color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
+
+}
+.data{
+    color: aliceblue;
+}
+main{
+    background-color: aqua;
+    width: 12000px;
+    padding: 200px;
+    
+    height: 70px;
+}
+aside{
+    background-color: blue;
+}
+footer{
+    background-color: black;
+    color: aliceblue;
+    bottom: 0;
+}
+section{
+display: flex;
+justify-content: space-between;
+
+}
+a:hover{
+    color:yellow;
+    padding: 20px;
+}
