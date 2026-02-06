@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+}
+body{
+    background-color: rgba(146, 175, 99, 0.8);
+}
+header{
+    background-color: black;
+    padding: 34px;
+    display: flex;
+    justify-content: space-between;
+}
+a{
+    color: peru;
+    text-decoration: none;
+    padding: 18px;
+}
+a:hover{
+    color: red;
+    transform:translateX(-5px);
+}
+fieldset{
+    padding: 40px;;
+    width: 30px;
+    margin-top: 70px;
+    background-color: rgb(180, 180, 130);
+
+}
+form{
+    margin-top:70px;
+}
+input{
+    border-radius: 10px;
+    border-color: green;
+}
+input:hover{
+    color: rgba(0,0,0,0.8);
+}
+button{
+    background-color: gold;
+    padding: 10px;
+    border-radius: 10px;
+}
+.fab{
+    display: flex;
+}
+.ish{
+    border-radius: 8px;
+}
