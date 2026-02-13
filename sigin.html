@@ -1,0 +1,93 @@
+html>
+<body>
+
+<div class="box">
+
+    <!-- REGISTER -->
+    <div id="registerPage">
+        <h2>Create Account</h2>
+        <input type="text" id="regUsername" placeholder="Username">
+        <input type="password" id="regPassword" placeholder="Password">
+        <button onclick="register()">Register</button>
+        <p>Already have account? <a onclick="showLogin()">Login</a></p>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="loginPage" class="hidden">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Username">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button onclick="fab()">Login</button>
+        <p>No account? <a onclick="showRegister()">Create Account</a></p>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboardPage" class="hidden">
+        <h2>welicome to website🎁</h2>
+        <p id="welcomeUser"></p>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+</div>
+
+<script>
+function showLogin(){
+    document.getElementById("registerPage").classList.add("hidden");
+    document.getElementById("loginPage").classList.remove("hidden");
+}
+
+function showRegister(){
+    document.getElementById("loginPage").classList.add("hidden");
+    document.getElementById("registerPage").classList.remove("hidden");
+}
+
+function register(){
+    let username = document.getElementById("regUsername").value;
+    let password = document.getElementById("regPassword").value;
+
+    if(username === "" || password === ""){
+        alert("Fill all fields!");
+        return;
+    }
+
+    localStorage.setItem(username, password);
+    alert("Account Created!");
+    showLogin();
+}
+
+function fab(){
+    let username = document.getElementById("loginUsername").value;
+    let password = document.getElementById("loginPassword").value;
+
+    let storedPassword = localStorage.getItem(username);
+
+    if(storedPassword === password){
+        localStorage.setItem("loggedInUser", username);
+        document.getElementById("welcomeUser").innerText = "Welcome " + username;
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("dashboardPage").classList.remove("hidden");
+    }else{
+        alert("Invalid Username or Password");
+    }
+}
+
+function logout(){
+    localStorage.removeItem("loggedInUser");
+    document.getElementById("dashboardPage").classList.add("hidden");
+    showLogin();
+}
+
+// Auto login niba yari yarinjiye
+window.onload = function(){
+    let user = localStorage.getItem("loggedInUser");
+    if(user){
+        document.getElementById("welcomeUser").innerText = "Welcome " + user;
+        document.getElementById("registerPage").classList.add("hidden");
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("dashboardPage").classList.remove("hidden");
+    }
+}
+</script>
+
+</body>
+</html>
